@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de API</title>
+
+    <style>
+        main {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Consumo de API</h1>
+    <main>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/SWGa82UUlGc?si=1hfkCxNQYTXIF2im"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MUoU3ZYr85w?si=Pmz-a3zD7yYZkWwt"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </main>
+
+    <script>
+
+        fetch('https://api.imdbapi.dev/titles/tt4574334')
+            .then(response => response.json())
+            .then(json => {
+                console.log(json.plot);
+                console.log(json.rating.aggregateRating);
+                console.log(json.genres[3]);
+                console.log(json);
+            });
+
+
+    </script>
+</body>
+
+</html>
